@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cafe</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%95%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="logo" id="navLogo">Cafe</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="home">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 id="heroHeadline">Loading…</h1>
+      <p id="heroSubheadline"></p>
+      <a id="heroCta" class="btn btn-primary" href="#menu">View Menu</a>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section class="about section" id="about">
+    <div class="container about-grid">
+      <div>
+        <h2 id="aboutTitle">About</h2>
+        <p id="aboutText"></p>
+      </div>
+      <div class="about-image" id="aboutImage"></div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="menu section" id="menu">
+    <div class="container">
+      <h2 class="section-title">Our Menu</h2>
+      <div class="menu-categories" id="menuTabs"></div>
+      <div class="menu-list" id="menuList"></div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery section" id="gallery">
+    <div class="container">
+      <h2 class="section-title">Gallery</h2>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials section" id="testimonials">
+    <div class="container">
+      <h2 class="section-title">What People Say</h2>
+      <div class="testimonials-grid" id="testimonialsGrid"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="container contact-grid">
+      <div>
+        <h2 class="section-title" style="text-align:left">Visit Us</h2>
+        <p class="contact-line"><strong>Address:</strong> <span id="contactAddress"></span></p>
+        <p class="contact-line"><strong>Phone:</strong> <span id="contactPhone"></span></p>
+        <p class="contact-line"><strong>Email:</strong> <span id="contactEmail"></span></p>
+
+        <h3 class="hours-title">Opening Hours</h3>
+        <ul class="hours-list" id="hoursList"></ul>
+
+        <div class="socials" id="socials"></div>
+      </div>
+      <div class="map-wrap" id="mapWrap"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> <span id="footerName">Cafe</span>. All rights reserved.</p>
+      <p><a href="/admin/">Admin</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
