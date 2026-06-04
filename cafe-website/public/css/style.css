@@ -173,6 +173,26 @@ img { max-width: 100%; display: block; }
 .testimonial-text { font-style: italic; margin-bottom: 1rem; }
 .testimonial-name { font-weight: 700; color: var(--primary); }
 
+/* RESERVATIONS */
+.reservations { background: white; }
+.reservations-inner { max-width: 660px; margin: 0 auto; text-align: center; }
+.reservations-body { font-size: 1.1rem; color: var(--muted); margin-bottom: 1.25rem; }
+.reservations-note {
+  font-style: italic; color: var(--muted);
+  margin-bottom: 2rem; padding: 1rem 1.5rem;
+  background: var(--background); border-radius: 6px;
+  border-left: 3px solid var(--accent); text-align: left;
+}
+.reservations-actions {
+  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+}
+.btn-outline {
+  background: var(--background); color: var(--primary);
+  border: 1.5px solid var(--primary);
+  transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.btn-outline:hover { background: var(--primary); color: white; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.15); }
+
 /* CONTACT */
 .contact-grid {
   display: grid; grid-template-columns: 1fr 1fr;

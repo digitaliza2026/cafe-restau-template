@@ -182,6 +182,13 @@
         el.value = val || '';
       }
     });
+    // Update admin brand based on business type
+    const brand = $('#adminBrand');
+    if (brand) {
+      brand.textContent = settings.business_type === 'restaurant'
+        ? '🍽️ Restaurant Admin'
+        : '☕ Cafe Admin';
+    }
   }
 
   // Generic "Save settings" button

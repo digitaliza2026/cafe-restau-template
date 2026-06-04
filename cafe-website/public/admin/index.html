@@ -12,7 +12,7 @@
 <div id="loginScreen" class="login-screen">
   <form id="loginForm" class="login-card">
     <h1>Admin Login</h1>
-    <p class="login-sub">Sign in to manage your cafe website</p>
+    <p class="login-sub">Sign in to manage your website</p>
     <label>Username</label>
     <input type="text" id="loginUser" autocomplete="username" required />
     <label>Password</label>
@@ -25,13 +25,15 @@
 <!-- DASHBOARD -->
 <div id="dashboard" class="dashboard hidden">
   <aside class="sidebar">
-    <h2 class="brand">☕ Cafe Admin</h2>
+    <h2 class="brand" id="adminBrand">☕ Admin</h2>
     <nav>
-      <button class="tab-btn active" data-tab="hero">Hero</button>
+      <button class="tab-btn active" data-tab="general">General</button>
+      <button class="tab-btn" data-tab="hero">Hero</button>
       <button class="tab-btn" data-tab="about">About</button>
       <button class="tab-btn" data-tab="menu">Menu</button>
       <button class="tab-btn" data-tab="gallery">Gallery</button>
       <button class="tab-btn" data-tab="testimonials">Testimonials</button>
+      <button class="tab-btn" data-tab="reservations">Reservations</button>
       <button class="tab-btn" data-tab="contact">Contact & Hours</button>
       <button class="tab-btn" data-tab="social">Social Links</button>
       <button class="tab-btn" data-tab="theme">Theme</button>
@@ -45,9 +47,17 @@
   <main class="content">
     <div id="toast" class="toast"></div>
 
-    <!-- HERO -->
-    <section class="panel" data-panel="hero">
-      <h2>Hero Section</h2>
+    <!-- GENERAL -->
+    <section class="panel active" data-panel="general">
+      <h2>General Settings</h2>
+      <div class="row">
+        <label>Business Type</label>
+        <select data-setting="business_type">
+          <option value="cafe">Cafe / Coffee Shop</option>
+          <option value="restaurant">Restaurant</option>
+        </select>
+      </div>
+      <p class="hint" style="margin-top:0.25rem">Switching to <strong>Restaurant</strong> enables the Reservations section and changes the hero icons.</p>
       <div class="row">
         <label>Site Name</label>
         <input type="text" data-setting="site_name" />
@@ -56,6 +66,12 @@
         <label>Tagline</label>
         <input type="text" data-setting="site_tagline" />
       </div>
+      <button class="primary" data-save="settings">Save General</button>
+    </section>
+
+    <!-- HERO -->
+    <section class="panel hidden" data-panel="hero">
+      <h2>Hero Section</h2>
       <div class="row">
         <label>Headline</label>
         <input type="text" data-setting="hero_headline" />
@@ -169,6 +185,26 @@
       <div class="row"><label>Twitter / X</label><input type="text" data-social="twitter" placeholder="https://x.com/..." /></div>
       <div class="row"><label>YouTube</label><input type="text" data-social="youtube" placeholder="https://youtube.com/..." /></div>
       <button class="primary" data-save="social">Save Social Links</button>
+    </section>
+
+    <!-- RESERVATIONS -->
+    <section class="panel hidden" data-panel="reservations">
+      <h2>Reservations</h2>
+      <p class="hint">This section appears on the public site only when <strong>Business Type</strong> is set to <em>Restaurant</em>.</p>
+      <div class="row">
+        <label>Section Title</label>
+        <input type="text" data-setting="reservation_title" placeholder="Book a Table" />
+      </div>
+      <div class="row">
+        <label>Description</label>
+        <textarea data-setting="reservation_text" rows="3" placeholder="We welcome walk-ins, but recommend reservations for groups of 4+…"></textarea>
+      </div>
+      <div class="row">
+        <label>Policy / Note</label>
+        <input type="text" data-setting="reservation_note" placeholder="Reservations available for groups of 2–20." />
+      </div>
+      <p class="hint" style="margin-top:0.5rem">The phone and email buttons are pulled automatically from your <strong>Contact &amp; Hours</strong> settings.</p>
+      <button class="primary" data-save="settings">Save Reservations</button>
     </section>
 
     <!-- THEME -->

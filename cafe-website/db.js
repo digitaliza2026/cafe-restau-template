@@ -87,6 +87,7 @@ function getSettingValue(key, fallback = null) {
 const settingsCount = db.prepare('SELECT COUNT(*) AS n FROM settings').get().n;
 if (settingsCount === 0) {
   setSettings({
+    business_type: 'cafe',
     site_name: 'Brew & Bean',
     site_tagline: 'Artisan Coffee · Fresh Pastries',
     hero_headline: 'Your Favorite Coffee, Every Morning',
@@ -97,6 +98,9 @@ if (settingsCount === 0) {
     about_title: 'Our Story',
     about_text: 'Founded in 2015, Brew & Bean is a family-owned cafe dedicated to serving the finest single-origin coffees and freshly baked goods. Every cup is brewed with care, and every pastry is baked in-house each morning.',
     about_image: '',
+    reservation_title: 'Book a Table',
+    reservation_text: 'We welcome walk-ins, but recommend reservations for groups of 4 or more — especially on weekends.',
+    reservation_note: 'Reservations available for groups of 2–20. Please call or email us.',
     contact_address: '123 Coffee Street, Downtown',
     contact_phone: '+1 (555) 123-4567',
     contact_email: 'hello@brewandbean.example',

@@ -41,6 +41,36 @@
     $('heroBg').style.backgroundImage = `url('${settings.hero_image}')`;
   }
 
+  // ---------- Business type ----------
+  const isRestaurant = settings.business_type === 'restaurant';
+
+  // Swap floating hero icons
+  const heroIconSets = {
+    restaurant: ['🍽️', '🥂', '🍷', '🥗'],
+    cafe:       ['☕',  '☕',  '♨',  '🌿'],
+  };
+  const heroIcons = heroIconSets[settings.business_type] || heroIconSets.cafe;
+  document.querySelectorAll('.hero-float').forEach((el, i) => {
+    el.textContent = heroIcons[i] || '';
+  });
+
+  // Reservations section
+  if (isRestaurant) {
+    $('reservations').style.display = '';
+    $('navReservation').style.display = '';
+    $('reservationTitle').textContent = settings.reservation_title || 'Book a Table';
+    $('reservationText').textContent  = settings.reservation_text  || '';
+    $('reservationNote').textContent  = settings.reservation_note  || '';
+    const phone = settings.contact_phone;
+    const email = settings.contact_email;
+    const actions = $('reservationsActions');
+    let html = '';
+    if (phone) html += `<a href="tel:${esc(phone)}" class="btn btn-primary">📞 ${esc(phone)}</a>`;
+    if (email) html += `<a href="mailto:${esc(email)}" class="btn btn-outline">✉ ${esc(email)}</a>`;
+    if (!phone && !email) html = `<a href="#contact" class="btn btn-primary">Contact Us</a>`;
+    actions.innerHTML = html;
+  }
+
   // ---------- About ----------
   $('aboutTitle').textContent = settings.about_title || 'About';
   $('aboutText').textContent = settings.about_text || '';
