@@ -142,4 +142,81 @@
   const links = $('navLinks');
   toggle.addEventListener('click', () => links.classList.toggle('open'));
   links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // ---------- Animations ----------
+
+  // Button ripple effect
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      const el = document.createElement('span');
+      el.className = 'btn-ripple';
+      const rect = this.getBoundingClientRect();
+      el.style.left = (e.clientX - rect.left) + 'px';
+      el.style.top  = (e.clientY - rect.top)  + 'px';
+      this.appendChild(el);
+      el.addEventListener('animationend', () => el.remove());
+    });
+  });
+
+  // Scroll reveal via IntersectionObserver
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      el.classList.add('visible');
+      revealObs.unobserve(el);
+      el.addEventListener('transitionend', () => {
+        el.classList.remove('reveal', 'from-left', 'from-right',
+          'stagger-1', 'stagger-2', 'stagger-3', 'stagger-4', 'stagger-5', 'stagger-6');
+      }, { once: true });
+    });
+  }, { threshold: 0.1 });
+
+  function revealEl(el, dir) {
+    if (!el) return;
+    el.classList.add('reveal');
+    if (dir) el.classList.add(dir);
+    revealObs.observe(el);
+  }
+
+  function revealList(els) {
+    els.forEach((el, i) => {
+      el.classList.add('reveal', `stagger-${Math.min((i % 6) + 1, 6)}`);
+      revealObs.observe(el);
+    });
+  }
+
+  // Section titles (with accent underline)
+  document.querySelectorAll('.section-title').forEach(t => revealEl(t));
+
+  // About columns
+  revealEl(document.querySelector('.about-grid > div:first-child'), 'from-left');
+  revealEl(document.querySelector('#aboutImage'), 'from-right');
+
+  // Menu items — also re-apply after tab switches
+  function applyMenuReveal() {
+    revealList(Array.from(document.querySelectorAll('.menu-item')));
+  }
+  applyMenuReveal();
+  document.querySelectorAll('.menu-tab').forEach(tab => {
+    tab.addEventListener('click', () => requestAnimationFrame(applyMenuReveal));
+  });
+
+  // Gallery & testimonials
+  revealList(Array.from(document.querySelectorAll('.gallery-item')));
+  revealList(Array.from(document.querySelectorAll('.testimonial')));
+
+  // Contact columns
+  const contactCols = Array.from(document.querySelectorAll('.contact-grid > *'));
+  if (contactCols[0]) revealEl(contactCols[0], 'from-left');
+  if (contactCols[1]) revealEl(contactCols[1], 'from-right');
+
+  // Hero parallax
+  const heroBgEl = $('heroBg');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y < window.innerHeight) {
+      heroBgEl.style.transform = `translateY(${y * 0.3}px)`;
+    }
+  }, { passive: true });
 })();
