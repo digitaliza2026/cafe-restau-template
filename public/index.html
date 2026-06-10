@@ -1,133 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fez & Friends is cafe & restaurant perfect">
-    <title>Fez And Friends cafe & restaurant perfect for dining or enjoying drinks with <br>
-        family and friends in a relaxed atmosphere with<br>
-         chill music.</title>
-    <link rel="stylesheet" href="style.css">
-    <meta name="google-site-verification" content="y07cVVRs_K3--u66uFZaaicOBUeJaNhIIfCzPQrgn3o" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cafe</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%95%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
-    <a href="https://www.tripadvisor.com/Restaurant_Review-g293733-d24986629-Reviews-Fez_And_Friends-Fez_Fez_Meknes.html"><img class="tripadvisorIcon" src="tripadvisor.png" alt="fez&friends"></a>
-
-    <div class="nav">
-    <img src="IMG-20241012-WA0011-removebg-preview.png" alt="logo">
-
-    <div class = "list">
-        <ul>
-            <li class="hideOnMobile"><a href="menu/menu.html">menu</a></li>
-            <li class="hideOnMobile"><a href="reserve/reserve.html" class="reserve">reserve now</a></li>
-            <li class="hideOnMobile"><a href="https://www.tripadvisor.com/Restaurant_Review-g293733-d24986629-Reviews-Fez_And_Friends-Fez_Fez_Meknes.html" class="review">review us</a></li>
-            <li class="hideOnMobile"><a href="Cooking Class/cooking.html" class="cook">cooking class</a></li>
-            <li class="hideOnMobile"><a href="About/about.html">about</a></li>
-            <li class="hideOnMobile"><a href="contact/contact.html">contact</a></li>
-            <li class="menuBtn" onclick=showsidebar()><a class="BtnMenu" href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
-        </ul>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="logo" id="navLogo">Cafe</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li id="navReservation" style="display:none"><a href="#reservations">Reservations</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
+  </nav>
 
+  <!-- HERO -->
+  <header class="hero" id="home">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <span class="hero-float" aria-hidden="true">☕</span>
+    <span class="hero-float" aria-hidden="true">☕</span>
+    <span class="hero-float" aria-hidden="true">♨</span>
+    <span class="hero-float" aria-hidden="true">🌿</span>
+    <div class="hero-content">
+      <h1 id="heroHeadline">Loading…</h1>
+      <p id="heroSubheadline"></p>
+      <a id="heroCta" class="btn btn-primary" href="#menu">View Menu</a>
     </div>
-    <div class = "list2"> 
-        <ul>
-            <li onclick=closeSidebar() class="close"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></li>
-            <li><a id="a" href="menu/menu.html">menu</a></li>
-            <li><a id="a" href="reserve/reserve.html" class="reserve2">reserve now</a></li>
-            <li><a id="a" href="https://www.tripadvisor.com/Restaurant_Review-g293733-d24986629-Reviews-Fez_And_Friends-Fez_Fez_Meknes.html" class="review">review us</a></li>
-            <li><a id="a" href="Cooking Class/cooking.html" class="cooking2">cooking class</a></li>
-            <li><a id="a" href="About/about.html">about</a></li>
-            <li><a id="a" href="contact/contact.html">contact</a></li>
-            <li>
-                <li><div class="iconsOfSidebar">
-                    <a class="insta" href="https://www.instagram.com/fezandfriendss?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="instagram.png" alt="instagram icon"></a>
-                    <a class="trip" href="https://www.tripadvisor.com/Restaurant_Review-g293733-d24986629-Reviews-Fez_And_Friends-Fez_Fez_Meknes.html"><img src="tripadvisor.png" alt="tripadvisor icon"></a>
-                    <a class="loc" href="https://maps.app.goo.gl/qwj2ygvyDY1HjWSV8"><img src="map.png" alt="map icon"></a>
-                </div></li>
-            </li>
-        </ul>
+  </header>
+
+  <!-- ABOUT -->
+  <section class="about section" id="about">
+    <div class="container about-grid">
+      <div>
+        <h2 id="aboutTitle">About</h2>
+        <p id="aboutText"></p>
+      </div>
+      <div class="about-image" id="aboutImage"></div>
     </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="menu section" id="menu">
     <div class="container">
-        <div class="texts">
-            <h3>Fez & Friends</h3><br>
-            <p>Fez & Friends is a cozy cafe and restaurant,<br>
-                 perfect for dining or enjoying drinks with <br>
-                 family and friends in a relaxed atmosphere with<br>
-                  chill music. They offer a delicious blend of Moroccan<br>
-                   and international dishes, along with fresh beverages. <br>
-                   The service is quick, friendly, and attentive. <br>
-                The charming spot is beautifully decorated with modern <br>
-                and vintage furniture, located just steps from the blue gate downtown,<br>
-                making it easy to find. <a href="About/about.html" class="link-with-icon">Learn more...<svg class="linkIcon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="    #027f70"><path d="M440-280H280q-83 0-141.5-58.5T80-480q0-83 58.5-141.5T280-680h160v80H280q-50 0-85 35t-35 85q0 50 35 85t85 35h160v80ZM320-440v-80h320v80H320Zm200 160v-80h160q50 0 85-35t35-85q0-50-35-85t-85-35H520v-80h160q83 0 141.5 58.5T880-480q0 83-58.5 141.5T680-280H520Z"/></svg></a></p>
-        </div>    
-        <img class="profile" src="outside.jpg" alt="Fez">
+      <h2 class="section-title">Our Menu</h2>
+      <div class="menu-categories" id="menuTabs"></div>
+      <div class="menu-list" id="menuList"></div>
     </div>
+  </section>
 
-    <div class="gallery">
-        <h4>Gallery</h4>        
-        <img style="height: 200px;" src="outside.jpg" alt="fez&friends">
-        <img style="height: 200px;" src="IMG-20241025-WA0015.jpg" alt="fez&friends">
-        <img src="IMG-20241030-WA0009.jpg" alt="fz&friends">
-        <img src="IMG-20241030-WA0043.jpg" alt="fez&friends">
-        <img src="IMG-20241030-WA0044.jpg" alt="fez&friends">
-        <img src="IMG-20241030-WA0046.jpg" alt="fez&friends">
-        <img src="IMG-20241030-WA0048.jpg" alt="fez&friends">
-        <img src="IMG-20241030-WA0050.jpg" alt="fez&friends">
-        <img src="IMG-20241031-WA0000(1).jpg" alt="fez&friends">
-        <img src="IMG-20241031-WA0001(1).jpg" alt="fez&friends">
-        <img src="IMG-20241101-WA0000.jpg" alt="fez&friends">
-        <img src="IMG-20241101-WA0003.jpg" alt="fez&friends">
-        <img src="IMG-20241101-WA0001.jpg" alt="fez&friends">
-        <img src="IMG-20241101-WA0004(1).jpg" alt="fez&friends">
-        <img src="IMG-20241101-WA0009.jpg" alt="fez&friends">
-        <img src="IMG-20241101-WA0007.jpg" alt="fez&friends">
-        <img src="IMG-20241101-WA0008.jpg" alt="fez&friends">
-        <img src="icedCoffe.jpg" alt="fez&friends">
-        
-        <img src="icedCoffe2.jpg" alt="fez&friends">
-        <img src="shama.jpg" alt="fez&friends">
+  <!-- GALLERY -->
+  <section class="gallery section" id="gallery">
+    <div class="container">
+      <h2 class="section-title">Gallery</h2>
+      <div class="gallery-grid" id="galleryGrid"></div>
     </div>
+  </section>
 
-    <script>
-            function showsidebar(){
-                const sidebar = document.querySelector('.list2');
-                sidebar.style.display = 'flex';
-                const icons = document.querySelector('.icons');
-                icons.style.display = 'none';
-            }
-
-            function closeSidebar(){
-                const sidebar = document.querySelector('.list2');
-                sidebar.style.display = 'none';
-                const icons = document.querySelector('.icons');
-                icons.style.display = 'flex';
-            }
-    </script>
-
-
-    <hr>
-    <div class="footer">
-        <div class="texts">
-            <p> <a class="copy-icon" href="#">©</a>  2024. All rights reserved.</p>
-            <p class="maker">created by <a href="https://getdigitaliza.com/">DIGITALIzA</a></p>
-        </div>
-        <div class="icons">
-            <a class="insta" href="https://www.instagram.com/fezandfriendss?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="instagram.png" alt="instagram icon"></a>
-            <a class="trip" href="https://www.tripadvisor.com/Restaurant_Review-g293733-d24986629-Reviews-Fez_And_Friends-Fez_Fez_Meknes.html"><img src="tripadvisor.png" alt="tripadvisor icon"></a>
-            <a class="loc" href="https://maps.app.goo.gl/qwj2ygvyDY1HjWSV8"><img src="map.png" alt="map icon"></a>
-        </div>
+  <!-- TESTIMONIALS -->
+  <section class="testimonials section" id="testimonials">
+    <div class="container">
+      <h2 class="section-title">What People Say</h2>
+      <div class="testimonials-grid" id="testimonialsGrid"></div>
     </div>
+  </section>
 
-    <div class="footerNav">
-        <ul>
-            <li><a href="/menu/menu.html">menu</a></li>
-            <li><a href="Cooking Class/cooking.html">cooking class</a></li>
-            <li><a href="https://www.tripadvisor.com/Restaurant_Review-g293733-d24986629-Reviews-Fez_And_Friends-Fez_Fez_Meknes.html">Review us</a></li>
-            <li><a href="contact/contact.html">contact</a></li>
-            <li><a href="About/about.html">about</a></li>
-        </ul>
+  <!-- RESERVATIONS (restaurant only) -->
+  <section class="reservations section" id="reservations" style="display:none">
+    <div class="container reservations-inner">
+      <h2 class="section-title" id="reservationTitle">Book a Table</h2>
+      <p id="reservationText" class="reservations-body"></p>
+      <p id="reservationNote" class="reservations-note"></p>
+      <div class="reservations-actions" id="reservationsActions"></div>
     </div>
+  </section>
 
+  <!-- CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="container contact-grid">
+      <div>
+        <h2 class="section-title" style="text-align:left">Visit Us</h2>
+        <p class="contact-line"><strong>Address:</strong> <span id="contactAddress"></span></p>
+        <p class="contact-line"><strong>Phone:</strong> <span id="contactPhone"></span></p>
+        <p class="contact-line"><strong>Email:</strong> <span id="contactEmail"></span></p>
+
+        <h3 class="hours-title">Opening Hours</h3>
+        <ul class="hours-list" id="hoursList"></ul>
+
+        <div class="socials" id="socials"></div>
+      </div>
+      <div class="map-wrap" id="mapWrap"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> <span id="footerName">Cafe</span>. All rights reserved.</p>
+      <p><a href="/admin/">Admin</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
 </body>
 </html>
